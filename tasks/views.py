@@ -15,6 +15,7 @@ def index(request):
     num_tasks = Task.objects.all().count()
     num_workers = Worker.objects.all().count()
     num_task_types = TaskType.objects.all().count()
+    num_positions = Position.objects.all().count()
 
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
@@ -23,6 +24,8 @@ def index(request):
         "num_tasks": num_tasks,
         "num_workers": num_workers,
         "num_task_types": num_task_types,
+        "num_visits": num_visits + 1,
+        "num_positions": num_positions,
     }
     return render(request, "tasks/home.html", context=context)
 
