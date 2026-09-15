@@ -1,3 +1,5 @@
+from multiprocessing.pool import worker
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
@@ -112,3 +114,13 @@ class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
 class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Worker
     queryset = Worker.objects.all().select_related("position")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        completed_task = self.object.assigned_tasks.filter(is_completed=True)
+        task_in_progress = self.object.assigned_tasks.filter(
+            is_completed=False
+        )
+        context["task_in_progress"] = task_in_progress
+        context["completed_task"] = completed_task
+        return context
