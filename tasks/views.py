@@ -5,7 +5,12 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import Task, Worker, TaskType, Position
-from .forms import TaskSearchForm, WorkerSearchForm, WorkerCreationForm
+from .forms import (TaskSearchForm,
+                    WorkerSearchForm,
+                    WorkerCreationForm,
+                    PositionSearchForm,
+                    TaskTypeSearchForm
+                    )
 
 
 @login_required
