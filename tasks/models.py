@@ -52,8 +52,7 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE)
     assignees = models.ManyToManyField(
-        Worker, blank=True,
-        related_name="assigned_tasks"
+        Worker, blank=True, related_name="assigned_tasks"
     )
 
     class Meta:

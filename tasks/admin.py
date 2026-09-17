@@ -13,8 +13,16 @@ class TaskAdmin(admin.ModelAdmin):
         "deadline",
         "is_completed",
     )
-    list_filter = ("deadline", "priority", "task_type", "is_completed",)
-    search_fields = ("name", "description",)
+    list_filter = (
+        "deadline",
+        "priority",
+        "task_type",
+        "is_completed",
+    )
+    search_fields = (
+        "name",
+        "description",
+    )
     filter_horizontal = ("assignees",)
 
 
@@ -39,4 +47,3 @@ class WorkerAdmin(UserAdmin):
     add_fieldsets = UserAdmin.add_fieldsets + (
         ("Additional info", {"fields": ("position",)}),
     )
-
