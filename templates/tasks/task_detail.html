@@ -9,6 +9,15 @@
   <a href="{% url 'tasks:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
     Update task
   </a>
+  {% if request.user in task.assignees.all %}
+    <a href="{% url 'tasks:toggle-task-assign' pk=task.id %}" class="btn btn-warning link-to-page">
+      Remove me from task
+    </a>
+  {% else %}
+    <a href="{% url 'tasks:toggle-task-assign' pk=task.id %}" class="btn btn-success link-to-page">
+      Assign me to task
+    </a>
+  {% endif %}
 
   <p><strong>Description:</strong> {{ task.description }}</p>
   <p><strong>Task type:</strong> {{ task.task_type }}</p>

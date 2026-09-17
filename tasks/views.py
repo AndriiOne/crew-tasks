@@ -1,16 +1,18 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import Task, Worker, TaskType, Position
-from .forms import (TaskSearchForm,
-                    WorkerSearchForm,
-                    WorkerCreationForm,
-                    PositionSearchForm,
-                    TaskTypeSearchForm
-                    )
+from .forms import (
+    TaskSearchForm,
+    WorkerSearchForm,
+    WorkerCreationForm,
+    PositionSearchForm,
+    TaskTypeSearchForm,
+)
 
 
 @login_required
@@ -42,9 +44,7 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = TaskSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = TaskSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
@@ -83,9 +83,7 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(WorkerListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("username", "")
-        context["search_form"] = WorkerSearchForm(
-            initial={"username": name}
-        )
+        context["search_form"] = WorkerSearchForm(initial={"username": name})
         return context
 
     def get_queryset(self):
@@ -136,18 +134,14 @@ class PositionListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PositionListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = PositionSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = PositionSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
         queryset = Position.objects.all()
         form = PositionSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
 
 
@@ -175,18 +169,14 @@ class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TaskTypeListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = TaskTypeSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = TaskTypeSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
         queryset = TaskType.objects.all()
         form = TaskTypeSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
 
 
@@ -205,3 +195,17 @@ class TaskTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = TaskType
     success_url = reverse_lazy("tasks:task-type-list")
+
+
+@login_required
+def toggle_assign_to_task(request, pk):
+    worker = request.user
+
+    if worker.assigned_tasks.filter(id=pk).exists():
+        worker.assigned_tasks.remove(pk)
+    else:
+        worker.assigned_tasks.add(pk)
+
+    return HttpResponseRedirect(
+        reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
+    )
