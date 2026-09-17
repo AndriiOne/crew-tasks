@@ -28,7 +28,7 @@
             {{ position.id }}
           </td>
           <td>
-            <a href="{{ position.name }}">{{ position.name }}</a>
+            {{ position.name }}
           </td>
           <td>
             <a href="{% url 'tasks:position-update' pk=position.id %}">
