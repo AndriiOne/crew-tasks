@@ -210,3 +210,13 @@ def toggle_assign_to_task(request, pk):
     return HttpResponseRedirect(
         reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
     )
+
+
+@login_required
+def toggle_status_task(request, pk):
+    task = Task.objects.get(id=pk)
+    task.is_completed = not task.is_completed
+    task.save()
+    return HttpResponseRedirect(
+        reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
+    )
