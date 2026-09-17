@@ -12,6 +12,7 @@ from .forms import (
     WorkerCreationForm,
     PositionSearchForm,
     TaskTypeSearchForm,
+    TaskDateForm,
 )
 
 
@@ -57,13 +58,13 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskDateForm
     success_url = reverse_lazy("tasks:task-list")
 
 
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskDateForm
     success_url = reverse_lazy("tasks:task-list")
 
 

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from tasks.models import Worker
+from tasks.models import Worker, Task
 
 
 class TaskSearchForm(forms.Form):
@@ -49,3 +49,15 @@ class TaskTypeSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
     )
+
+
+class TaskDateForm(forms.ModelForm):
+    deadline = forms.DateTimeField(
+        widget=forms.DateTimeInput(
+            attrs={"type": "datetime-local"},
+        )
+    )
+
+    class Meta:
+        model = Task
+        fields = "__all__"
