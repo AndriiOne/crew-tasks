@@ -1,31 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Worker: {{ worker.username }}</h1>
-  <a href="{% url 'tasks:worker-delete' pk=worker.id %}" class="btn btn-danger link-to-page">
-    Delete
-  </a>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0">Worker: {{ worker.username }}</h4>
 
-  <a href="{% url 'tasks:worker-update' pk=worker.id %}" class="btn btn-secondary link-to-page">
-    Update
-  </a>
+    <div class="d-flex gap-2 align-items-center">
+      <a href="{% url 'tasks:worker-update' pk=worker.id %}" class="btn btn-secondary btn-sm mb-0">
+        Update
+      </a>
+      <a href="{% url 'tasks:worker-delete' pk=worker.id %}" class="btn btn-danger btn-sm mb-0">
+        Delete
+      </a>
+    </div>
+  </div>
 
-  <p><strong>Username:</strong> {{ worker.username }}</p>
-  <p><strong>Position:</strong> {{ worker.position }}</p>
-  <p><strong>First name:</strong> {{ worker.first_name }}</p>
-  <p><strong>Last name:</strong> {{ worker.last_name }}</p>
-  <p><strong>Email:</strong> {{ worker.email }}</p>
-  <h4><strong>Tasks:</strong></h4>
-  <h5>In Progress:</h5>
-  {% for task in task_in_progress %}
-    <a href="{% url 'tasks:task-detail' pk=task.id %}">{{ task.name }}</a>
-  {% empty %}
-    No tasks
-  {% endfor %}
-  <h5>Completed:</h5>
-  {% for task in completed_task %}
-    <a href="{% url 'tasks:task-detail' pk=task.id %}">{{ task.name }}</a>
-  {% empty %}
-    No tasks
-  {% endfor %}
+  <p><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username:</strong> {{ worker.username }}</p>
+  <p><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position:</strong> {{ worker.position|default:"—" }}</p>
+  <p><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First name:</strong> {{ worker.first_name|default:"—" }}</p>
+  <p><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last name:</strong> {{ worker.last_name|default:"—" }}</p>
+  <p><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email:</strong> {{ worker.email|default:"—" }}</p>
+
+  <h5 class="mt-4">Tasks In Progress</h5>
+  <table class="table align-items-center mb-0">
+    <thead>
+      <tr>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Task name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in task_in_progress %}
+        <tr>
+          <td>
+            <a href="{% url 'tasks:task-detail' pk=task.id %}">{{ task.name }}</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td>
+            <p class="mb-0">No tasks in progress.</p>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h5 class="mt-4">Completed Tasks</h5>
+  <table class="table align-items-center mb-0">
+    <thead>
+      <tr>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Task name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in completed_task %}
+        <tr>
+          <td>
+            <a href="{% url 'tasks:task-detail' pk=task.id %}">{{ task.name }}</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td>
+            <p class="mb-0">No completed tasks.</p>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
