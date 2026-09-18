@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
-{% block content %}
-  <h4 class="mb-4">{{ object|yesno:"Update,Create" }} task type</h4>
+{% block title %}{% if object %}Update Task Type{% else %}Create Task Type{% endif %}{% endblock %}
 
-  <div class="col-md-6">
+{% block content %}
+  <div class="pt-2 mb-4">
+    <h4 class="font-weight-bolder text-dark mb-1">{% if object %}Update Task Type{% else %}Create Task Type{% endif %}</h4>
+    <p class="text-secondary text-sm">Fill in the fields below to {{ object|yesno:"update the task type,create a new task type" }}.</p>
+  </div>
+
+  <div class="col-lg-8 col-md-10 col-12">
     <form action="" method="post" novalidate>
       {% csrf_token %}
       {{ form|crispy }}
 
-      <div class="d-flex gap-2 mt-3">
-        <button type="submit" class="btn btn-primary mb-0">
+      <div class="d-flex align-items-center gap-2 mt-4">
+        <button type="submit" class="btn btn-sm bg-gradient-primary mb-0">
           Submit
         </button>
-        <a href="{% url 'tasks:task-type-list' %}" class="btn btn-secondary mb-0">
+        <a href="{% url 'tasks:task-type-list' %}" class="btn btn-sm bg-gradient-secondary mb-0">
           Cancel
         </a>
       </div>
