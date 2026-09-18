@@ -1,51 +1,62 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
+{% block title %}Positions - Crew Tasks{% endblock %}
+
 {% block content %}
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="mb-0">Positions</h4>
-    <a href="{% url 'tasks:position-create' %}" class="btn btn-primary btn-sm mb-0">
-      Create
+  <div class="d-flex justify-content-between align-items-center mb-4 pt-2">
+    <h4 class="font-weight-bolder text-dark mb-0">Positions</h4>
+    <a href="{% url 'tasks:position-create' %}" class="btn bg-gradient-primary btn-sm mb-0">
+      <i class="fas fa-plus me-1"></i> Create Position
     </a>
   </div>
-  <form action="" method="get" class="d-flex mb-4">
-    <div class="input-group w-50">
-      {{ search_form.name }}
-      <button class="btn btn-outline-primary mb-0" type="submit">Search</button>
+
+  <form action="" method="get" class="mb-4">
+    <div class="row">
+      <div class="col-lg-9 col-md-10 col-12">
+        <div class="input-group">
+          {{ search_form.name }}
+          <button class="btn bg-gradient-dark mb-0" type="submit">Search</button>
+        </div>
+      </div>
     </div>
   </form>
-  {% if position_list %}
-    <table class="table align-items-center mb-0">
-      <thead>
-        <tr>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
 
-      {% for position in position_list %}
-        <tr>
-          <td>
-            {{ position.id }}
-          </td>
-          <td>
-            {{ position.name }}
-          </td>
-          <td>
-          <a href="{% url 'tasks:position-update' pk=position.id %}"
-             class="btn btn-sm btn-outline-secondary mb-0">Update</a>
-          </td>
-          <td>
-            <a href="{% url 'tasks:position-delete' pk=position.id %}"
-               class="btn btn-sm btn-outline-danger mb-0">Delete</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
+  {% if position_list %}
+    <div class="table-responsive p-0">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+            <th class="text-secondary opacity-7"></th>
+            <th class="text-secondary opacity-7"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for position in position_list %}
+            <tr>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ position.id }}</span>
+              </td>
+              <td>
+                <span class="text-dark font-weight-bold text-xs">{{ position.name }}</span>
+              </td>
+              <td class="align-middle text-end">
+                <a href="{% url 'tasks:position-update' pk=position.id %}"
+                   class="btn btn-sm bg-gradient-secondary mb-0">Update</a>
+              </td>
+              <td class="align-middle text-end">
+                <a href="{% url 'tasks:position-delete' pk=position.id %}"
+                   class="btn btn-sm bg-gradient-danger mb-0">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
   {% else %}
-      <p>There are no positions in the service.</p>
+    <p class="text-secondary text-sm mb-0">There are no positions in the service.</p>
   {% endif %}
 {% endblock %}
