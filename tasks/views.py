@@ -12,7 +12,7 @@ from .forms import (
     WorkerCreationForm,
     PositionSearchForm,
     TaskTypeSearchForm,
-    TaskDateForm,
+    TaskDateForm, RegistrationForm,
 )
 
 
@@ -198,6 +198,13 @@ class TaskTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = TaskType
     success_url = reverse_lazy("tasks:task-type-list")
+
+
+class RegistrationCreateView(generic.CreateView):
+    model = Worker
+    form_class = RegistrationForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy("login")
 
 
 @login_required

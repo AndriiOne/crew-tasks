@@ -43,6 +43,16 @@ class WorkerCreationForm(UserCreationForm):
         )
 
 
+class RegistrationForm(WorkerCreationForm):
+    class Meta(WorkerCreationForm.Meta):
+        model = Worker
+        fields = UserCreationForm.Meta.fields + (
+            "email",
+            "first_name",
+            "last_name",
+        )
+
+
 class PositionSearchForm(forms.Form):
     name = forms.CharField(
         max_length=100,

@@ -20,7 +20,9 @@ from .views import (
     PositionListView,
     TaskTypeCreateView,
     TaskTypeUpdateView,
-    toggle_assign_to_task, toggle_status_task,
+    toggle_assign_to_task,
+    toggle_status_task,
+    RegistrationCreateView,
 )
 
 app_name = "tasks"
@@ -93,4 +95,8 @@ urlpatterns = [
         TaskTypeDeleteView.as_view(),
         name="task-type-delete",
     ),
+    path(
+        "register/",
+        RegistrationCreateView.as_view(),
+        name="register"),
 ]
