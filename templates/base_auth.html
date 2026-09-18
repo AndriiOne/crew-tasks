@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>{% block title %}Crew Tasks - Login{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link id="pagestyle" href="{% static 'assets/css/soft-design-system.css' %}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-white">
+  <div class="container-fluid p-0">
+    <div class="row g-0 min-vh-100">
+
+      <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center bg-white px-4 position-relative overflow-hidden">
+
+        <div class="position-absolute w-100 h-100 top-0 start-0 pattern-mask-accent"
+             style="--mask-img: url('{% static "assets/img/shapes/pattern-lines.svg" %}'); z-index: 0;"></div>
+
+        <div class="w-100 position-relative" style="max-width: 400px; z-index: 1;">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+
+      <div class="col-lg-7 col-md-6 d-none d-md-flex bg-gradient-primary flex-column align-items-center justify-content-center position-relative">
+
+        <div class="position-absolute w-100 h-100 top-0 start-0" style="background-image: url('{% static "assets/img/shapes/pattern-lines.svg" %}'); background-size: cover; opacity: 0.6;"></div>
+
+        <div class="text-center position-relative d-flex flex-column align-items-center" style="z-index: 1;">
+          <h1 class="text-white font-weight-bolder display-3 mb-2">Crew Tasks</h1>
+          <p class="text-white opacity-8 mb-0">© Andrii Hrabovskyi</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
