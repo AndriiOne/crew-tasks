@@ -21,3 +21,32 @@
   mask-size: cover;
   opacity: 1;
 }
+
+.navbar-nav .nav-link {
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  color: #344767;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #4F46E5 !important;
+  transform: translateY(-1px);
+}
+
+.navbar-brand {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 991.98px) {
+  .auth-btn-mobile {
+    width: 100% !important;
+  }
+}
+@media (min-width: 992px) {
+  .auth-btn-mobile {
+    width: auto !important;
+  }
+}

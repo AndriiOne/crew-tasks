@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Crew Tasks Home</h1>
-    <p>Welcome to Best team board Ever!</p>
-    <h2>Dynamic content</h2>
-    <p>The Crew tasks service has the following record counts:</p>
-    <ul>
-        <li><strong>Workers:</strong> {{ num_workers }}</li>
-        <li><strong>Tasks:</strong> {{ num_tasks }}</li>
-        <li><strong>Positions:</strong> {{ num_positions }}</li>
-        <li><strong>Task Types:</strong> {{ num_task_types }}</li>
-    </ul>
+  <h4 class="font-weight-bolder mb-2">Crew Tasks Home</h4>
+  <p class="text-secondary mb-4">Welcome to Best team board Ever!</p>
 
-    <p>You have visited this page
-        {{ num_visits }} time{{ num_visits|pluralize }}.
-    </p>
+  <h4 class="font-weight-bolder mb-3">Dynamic content</h4>
+  <p class="text-secondary">The Crew tasks service has the following record counts:</p>
 
+  <ul class="text-secondary ps-4 mb-4">
+    <li><strong>Workers:</strong> {{ num_workers }}</li>
+    <li><strong>Tasks:</strong> {{ num_tasks }}</li>
+    <li><strong>Positions:</strong> {{ num_positions }}</li>
+    <li><strong>Task Types:</strong> {{ num_task_types }}</li>
+  </ul>
+
+  <p class="text-secondary mb-0">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 {% endblock %}
