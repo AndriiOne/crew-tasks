@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete {{ worker.first_name }} {{ worker.last_name }} ({{ worker.username }}) worker?</h1>
+  <h4 class="mb-4">Delete worker "{{ worker.first_name }} {{ worker.last_name }} ({{ worker.username }})"?</h4>
+
   <form method="post">
     {% csrf_token %}
-    <a href="{% url 'tasks:worker-detail' worker.id %}" class="btn btn-secondary">
-      Cancel
-    </a>
-    <input type="submit" value="Yes" class="btn btn-danger">
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-danger mb-0">Delete</button>
+      <a href="{% url 'tasks:worker-detail' pk=worker.id %}" class="btn btn-secondary mb-0">Cancel</a>
+    </div>
   </form>
 {% endblock %}
