@@ -1,18 +1,44 @@
 {% extends "base.html" %}
 
+{% block title %}Crew Tasks - Home{% endblock %}
+
 {% block content %}
-  <h4 class="font-weight-bolder mb-2">Crew Tasks Home</h4>
-  <p class="text-secondary mb-4">Welcome to Best team board Ever!</p>
+<div class="text-center mb-5 pt-2">
+  <h3 class="font-weight-bolder text-dark mb-1">System Overview</h3>
+  <p class="text-secondary text-sm">The Crew Tasks service has the following record counts:</p>
+</div>
 
-  <h4 class="font-weight-bolder mb-3">Dynamic content</h4>
-  <p class="text-secondary">The Crew tasks service has the following record counts:</p>
+<div class="row text-center">
 
-  <ul class="text-secondary ps-4 mb-4">
-    <li><strong>Workers:</strong> {{ num_workers }}</li>
-    <li><strong>Tasks:</strong> {{ num_tasks }}</li>
-    <li><strong>Positions:</strong> {{ num_positions }}</li>
-    <li><strong>Task Types:</strong> {{ num_task_types }}</li>
-  </ul>
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
+    <h3 class="text-gradient text-primary font-weight-bolder display-5">{{ num_workers }}</h3>
+    <h5 class="mt-2 mb-1">Workers</h5>
+    <p class="text-sm text-secondary px-2">Active team members registered in the system.</p>
+  </div>
 
-  <p class="text-secondary mb-0">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
+    <h3 class="text-gradient text-primary font-weight-bolder display-5">{{ num_tasks }}</h3>
+    <h5 class="mt-2 mb-1">Tasks</h5>
+    <p class="text-sm text-secondary px-2">Total tasks managed across all boards.</p>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
+    <h3 class="text-gradient text-primary font-weight-bolder display-5">{{ num_positions }}</h3>
+    <h5 class="mt-2 mb-1">Positions</h5>
+    <p class="text-sm text-secondary px-2">Distinct professional roles available.</p>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <h3 class="text-gradient text-primary font-weight-bolder display-5">{{ num_task_types }}</h3>
+    <h5 class="mt-2 mb-1">Task Types</h5>
+    <p class="text-sm text-secondary px-2">Categories used to classify work items.</p>
+  </div>
+
+</div>
+
+<div class="text-center mt-5 pt-3 border-top">
+  <p class="text-sm text-secondary mb-0">
+    You have visited this page <span class="font-weight-bold text-dark">{{ num_visits }}</span> time{{ num_visits|pluralize }}.
+  </p>
+</div>
 {% endblock %}
