@@ -2,69 +2,83 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="mb-0">Tasks</h4>
-    <a href="{% url 'tasks:task-create' %}" class="btn btn-primary btn-sm mb-0">
-      Create
+  <div class="d-flex justify-content-between align-items-center mb-4 pt-2">
+    <h4 class="font-weight-bolder text-dark mb-0">Tasks</h4>
+    <a href="{% url 'tasks:task-create' %}" class="btn bg-gradient-primary btn-sm mb-0">
+      <i class="fas fa-plus me-1"></i> Create Task
     </a>
   </div>
-  <form action="" method="get" class="d-flex mb-4">
-    <div class="input-group w-50">
-      {{ search_form.name }}
-      <button class="btn btn-outline-primary mb-0" type="submit">Search</button>
-    </div>
-  </form>
+
+   <form action="" method="get" class="mb-4">
+      <div class="row">
+        <div class="col-lg-9 col-md-10 col-12">
+          <div class="input-group">
+            {{ search_form.name }}
+            <button class="btn bg-gradient-dark mb-0" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
   {% if task_list %}
-    <table class="table align-items-center mb-0">
-      <thead>
-        <tr>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Progress</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Priority</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Task Type</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Num workers</th>
-        </tr>
-      </thead>
-      {% for task in task_list %}
-        <tr>
-          <td>
-            {{ task.id }}
-          </td>
-          <td>
-            <a href="{% url 'tasks:task-detail' task.id %}">{{ task.name }}</a>
-          </td>
-          <td>
-            {{ task.deadline }}
-          </td>
-          <td>
-            {% if task.is_completed %}
-              <span class="badge bg-gradient-success">Done</span>
-            {% else %}
-              <span class="badge bg-gradient-secondary">In progress</span>
-            {% endif %}
-          </td>
-          <td>
-              {% if task.priority == "urgent" %}
-                <span class="badge bg-gradient-danger">{{ task.get_priority_display }}</span>
-              {% elif task.priority == "high" %}
-                <span class="badge bg-gradient-info">{{ task.get_priority_display }}</span>
-              {% elif task.priority == "low" %}
-                <span class="badge bg-gradient-secondary">{{ task.get_priority_display }}</span>
-              {% endif %}
-          </td>
-          <td>
-            {{ task.task_type }}
-          </td>
-          <td>
-            {{ task.assignees.count }}
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
+    <div class="table-responsive p-0">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Deadline</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Progress</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Priority</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Task Type</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Num workers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in task_list %}
+            <tr>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ task.id }}</span>
+              </td>
+              <td>
+                <a href="{% url 'tasks:task-detail' task.id %}" class="text-dark font-weight-bold text-xs icon-move-right">
+                  {{ task.name }}
+                </a>
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ task.deadline }}</span>
+              </td>
+              <td>
+                {% if task.is_completed %}
+                  <span class="badge badge-sm bg-gradient-success">Done</span>
+                {% else %}
+                  <span class="badge badge-sm bg-gradient-secondary">In progress</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if task.priority == "urgent" %}
+                  <span class="badge badge-sm bg-gradient-danger">{{ task.get_priority_display }}</span>
+                {% elif task.priority == "high" %}
+                  <span class="badge badge-sm bg-gradient-info">{{ task.get_priority_display }}</span>
+                {% elif task.priority == "low" %}
+                  <span class="badge badge-sm bg-gradient-secondary">{{ task.get_priority_display }}</span>
+                {% else %}
+                  <span class="badge badge-sm bg-gradient-light text-dark">{{ task.get_priority_display }}</span>
+                {% endif %}
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ task.task_type }}</span>
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ task.assignees.count }}</span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
   {% else %}
-      <p>There are no tasks in the service.</p>
+    <p class="text-secondary text-sm mb-0">There are no tasks in the service.</p>
   {% endif %}
 {% endblock %}
