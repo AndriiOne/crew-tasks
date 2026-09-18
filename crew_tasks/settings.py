@@ -141,5 +141,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 AUTH_USER_MODEL = "tasks.Worker"
 
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "tasks:home"
+LOGOUT_REDIRECT_URL = "tasks:home"
