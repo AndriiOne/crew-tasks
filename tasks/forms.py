@@ -9,7 +9,12 @@ class TaskSearchForm(forms.Form):
         max_length=100,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name",
+                "class": "form-control",
+            }
+        ),
     )
 
 
@@ -18,7 +23,12 @@ class WorkerSearchForm(forms.Form):
         max_length=100,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name",
+                "class": "form-control",
+            }
+        ),
     )
 
 
@@ -38,7 +48,12 @@ class PositionSearchForm(forms.Form):
         max_length=100,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name",
+                "class": "form-control",
+            }
+        ),
     )
 
 
@@ -47,7 +62,12 @@ class TaskTypeSearchForm(forms.Form):
         max_length=100,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name",
+                "class": "form-control",
+            }
+        ),
     )
 
 
