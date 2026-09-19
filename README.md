@@ -73,13 +73,6 @@ A modern, responsive Django task management application built with a minimalist 
    python manage.py runserver
    ```
 
-## Demo Access
-   
-   You can log in using the pre-configured guest account:
-   
-   * **Username:** ustin
-   * **Password:** PassTest1234
-
 ## Screenshots
 ![Home](docs/Home.png)
 ![Task Details](docs/Task_details.png)
