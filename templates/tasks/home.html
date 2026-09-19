@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Crew Tasks - Home{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5 pt-2">
+  <h3 class="font-weight-bolder text-dark mb-1">System Overview</h3>
+  <p class="text-secondary text-sm">The Crew Tasks service has the following record counts:</p>
+</div>
+
+<!-- Сітка зі статистикою у вигляді карток із легким градієнтом -->
+<div class="row">
+
+  <!-- Workers -->
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="card card-body border-0 shadow-sm text-center h-100 py-4" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);">
+      <h3 class="display-6 font-weight-bolder mb-1" style="color: #1E3A8A;">{{ num_workers }}</h3>
+      <h5 class="mt-2 mb-1 text-dark font-weight-bold">Workers</h5>
+      <p class="text-sm text-secondary px-2 mb-0">Active team members registered in the system.</p>
+    </div>
+  </div>
+
+  <!-- Tasks -->
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="card card-body border-0 shadow-sm text-center h-100 py-4" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);">
+      <h3 class="display-6 font-weight-bolder mb-1" style="color: #1E3A8A;">{{ num_tasks }}</h3>
+      <h5 class="mt-2 mb-1 text-dark font-weight-bold">Tasks</h5>
+      <p class="text-sm text-secondary px-2 mb-0">Total tasks managed across all boards.</p>
+    </div>
+  </div>
+
+  <!-- Positions -->
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="card card-body border-0 shadow-sm text-center h-100 py-4" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);">
+      <h3 class="display-6 font-weight-bolder mb-1" style="color: #1E3A8A;">{{ num_positions }}</h3>
+      <h5 class="mt-2 mb-1 text-dark font-weight-bold">Positions</h5>
+      <p class="text-sm text-secondary px-2 mb-0">Distinct professional roles available.</p>
+    </div>
+  </div>
+
+  <!-- Task Types -->
+  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="card card-body border-0 shadow-sm text-center h-100 py-4" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);">
+      <h3 class="display-6 font-weight-bolder mb-1" style="color: #1E3A8A;">{{ num_task_types }}</h3>
+      <h5 class="mt-2 mb-1 text-dark font-weight-bold">Task Types</h5>
+      <p class="text-sm text-secondary px-2 mb-0">Categories used to classify work items.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Нижній рядок з відвідинами -->
+<div class="text-center mt-5 pt-3 border-top">
+  <p class="text-sm text-secondary mb-0">
+    You have visited this page <span class="font-weight-bold text-dark">{{ num_visits }}</span> time{{ num_visits|pluralize }}.
+  </p>
+</div>
+{% endblock %}
