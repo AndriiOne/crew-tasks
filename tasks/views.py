@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .models import Task, Worker, TaskType, Position
-from .forms import (
+from tasks.models import Task, Worker, TaskType, Position
+from tasks.forms import (
     TaskSearchForm,
     WorkerSearchForm,
     WorkerCreationForm,
