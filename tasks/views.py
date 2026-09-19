@@ -207,25 +207,25 @@ class RegistrationCreateView(generic.CreateView):
     success_url = reverse_lazy("login")
 
 
-@login_required
-def toggle_assign_to_task(request, pk):
-    worker = request.user
+class ToggleTaskAssignView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk, *args, **kwargs):
+        worker = request.user
 
-    if worker.assigned_tasks.filter(id=pk).exists():
-        worker.assigned_tasks.remove(pk)
-    else:
-        worker.assigned_tasks.add(pk)
+        if worker.assigned_tasks.filter(id=pk).exists():
+            worker.assigned_tasks.remove(pk)
+        else:
+            worker.assigned_tasks.add(pk)
 
-    return HttpResponseRedirect(
-        reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
-    )
+        return HttpResponseRedirect(
+            reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
+        )
 
 
-@login_required
-def toggle_status_task(request, pk):
-    task = Task.objects.get(id=pk)
-    task.is_completed = not task.is_completed
-    task.save()
-    return HttpResponseRedirect(
-        reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
-    )
+class ToggleTaskStatusView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk, *args, **kwargs):
+        task = Task.objects.get(id=pk)
+        task.is_completed = not task.is_completed
+        task.save()
+        return HttpResponseRedirect(
+            reverse_lazy("tasks:task-detail", kwargs={"pk": pk})
+        )
