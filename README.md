@@ -8,6 +8,7 @@ A modern, responsive Django task management application built with a minimalist 
 * SQLite
 * Bootstrap 5
 * crispy-forms
+* python-dotenv
 
 ## Features
 
@@ -47,20 +48,37 @@ A modern, responsive Django task management application built with a minimalist 
     pip install -r requirements.txt
    ```
    
-4. **Apply database migrations:**
+4. **Set up environment variables:**
+   ```bash
+    cp .env.sample .env
+   ```
+   Then open `.env` and set your own `SECRET_KEY`
+   ```bash
+      python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   ```
+   Copy the output and paste it as the SECRET_KEY value inside your .env file.
+
+5. **Apply database migrations:**
     ```bash
     python manage.py migrate
    ```
    
-5. **Create a superuser:**
+6. **Create a superuser:**
     ```bash
     python manage.py createsuperuser
    ```
    
-6. **Run the development server:**
+7. **Run the development server:**
     ```bash
    python manage.py runserver
    ```
+
+## Demo Access
+   
+   You can log in using the pre-configured guest account:
+   
+   * **Username:** ustin
+   * **Password:** PassTest1234
 
 ## Screenshots
 ![Home](docs/Home.png)
