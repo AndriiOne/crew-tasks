@@ -1,0 +1,1029 @@
+[
+    {
+        "model": "tasks.position",
+        "pk": 1,
+        "fields": {
+            "name": "Project Manager"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 2,
+        "fields": {
+            "name": "Developer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 3,
+        "fields": {
+            "name": "QA Engineer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 4,
+        "fields": {
+            "name": "Designer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 5,
+        "fields": {
+            "name": "DevOps Specialist"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 6,
+        "fields": {
+            "name": "Software Engineer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 7,
+        "fields": {
+            "name": "Senior Backend Developer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 8,
+        "fields": {
+            "name": "UI/UX Designer"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 9,
+        "fields": {
+            "name": "Product Owner"
+        }
+    },
+    {
+        "model": "tasks.position",
+        "pk": 10,
+        "fields": {
+            "name": "Human Resources Manager"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 1,
+        "fields": {
+            "name": "Bug fix"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 4,
+        "fields": {
+            "name": "New feature"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 5,
+        "fields": {
+            "name": "Breaking Change"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 6,
+        "fields": {
+            "name": "Code Refactoring"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 7,
+        "fields": {
+            "name": "Testing QA"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 8,
+        "fields": {
+            "name": "UI/UX design"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 9,
+        "fields": {
+            "name": "Documentation"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 10,
+        "fields": {
+            "name": "Database migration"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 11,
+        "fields": {
+            "name": "Security audit"
+        }
+    },
+    {
+        "model": "tasks.tasktype",
+        "pk": 12,
+        "fields": {
+            "name": "Performance optimization"
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$BcUFnokj4k9cVSQUFvLOGF$/BrIQuW7tYBOwVsUs5W/npFaeq3bT5PhHOIWq5M99yw=",
+            "last_login": "2026-09-19T16:14:20.804Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "Andrii",
+            "last_name": "Hrabovskyi",
+            "email": "example@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-09-14T20:11:41.435Z",
+            "position": 10,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$dIAOwyBa7o8H2TPIZ11vB1$pWXXVRx2UAtDQ/wUb3SqvSZYG1oHmnho+t71Urjyh4c=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "verda",
+            "first_name": "Verda",
+            "last_name": "Alivera",
+            "email": "verda@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-17T21:09:31.589Z",
+            "position": 1,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$5OXhIaa2vITag5Agqu8US5$veGJi3ugVdqfdHFzSusUnRokS6gnJMMO/Y1ZrSDkTwg=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "avrelii",
+            "first_name": "Avrelii",
+            "last_name": "Monteri",
+            "email": "avrelii@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-17T21:10:30.951Z",
+            "position": 2,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$01boJTlBWG1Gepoqps5ddK$QTDLazJDr4WMhhbJU9akUyfQLYXtiYxSVLYLHOENS0w=",
+            "last_login": "2026-09-19T16:15:02.864Z",
+            "is_superuser": false,
+            "username": "ustin",
+            "first_name": "Ustin",
+            "last_name": "Narneto",
+            "email": "ustin@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-17T21:11:53.889Z",
+            "position": 3,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$xTSYo3EyrxyCOx58ygd3ur$+pUrLqHlpB9tHozdsYUj9pfAzaQfimPxYNY26EYHCGA=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "vasilin",
+            "first_name": "Vasyl",
+            "last_name": "Liun",
+            "email": "vasiliun@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-18T17:59:07.305Z",
+            "position": 9,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$dImIpV72wUidyuGS3EBY3V$gRvHixEsFvwIYqPKbML/uuZyy7EnIuYLnw+LPpp8mLU=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "alex_dev",
+            "first_name": "Oleksandr",
+            "last_name": "Shevchenko",
+            "email": "alex_dev@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-18T19:35:19.023Z",
+            "position": 6,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$7QUwtzOye2acsGr2thhAYm$ZtWB69VvNzpxC/jAbKErKuLpMPSgR9nux4PsB0NxqYU=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "maria_qa",
+            "first_name": "Maria",
+            "last_name": "Kovalenko",
+            "email": "maria_qa@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-18T19:36:43.721Z",
+            "position": 3,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$OUFjZ0485K8kzZsL2dIVAt$//WubUOP3WHedtzXtEoWZnGuVC2w9hYkPy4c8lmY3Sk=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "ivan_pm",
+            "first_name": "Ivan",
+            "last_name": "Melnyk",
+            "email": "ivan_pm@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-18T19:37:34.825Z",
+            "position": 8,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$dIAOwyBa7o8H2TPIZ11vB1$pWXXVRx2UAtDQ/wUb3SqvSZYG1oHmnho+t71Urjyh4c=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "olena_ops",
+            "first_name": "Olena",
+            "last_name": "Tkachenko",
+            "email": "olena_ops@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-19T09:12:00.000Z",
+            "position": 5,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 10,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$5OXhIaa2vITag5Agqu8US5$veGJi3ugVdqfdHFzSusUnRokS6gnJMMO/Y1ZrSDkTwg=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "dmytro_be",
+            "first_name": "Dmytro",
+            "last_name": "Savchenko",
+            "email": "dmytro_be@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-19T09:20:00.000Z",
+            "position": 7,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 11,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$xTSYo3EyrxyCOx58ygd3ur$+pUrLqHlpB9tHozdsYUj9pfAzaQfimPxYNY26EYHCGA=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "sofia_ux",
+            "first_name": "Sofiia",
+            "last_name": "Bondar",
+            "email": "sofia_ux@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-19T09:31:00.000Z",
+            "position": 4,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 12,
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$7QUwtzOye2acsGr2thhAYm$ZtWB69VvNzpxC/jAbKErKuLpMPSgR9nux4PsB0NxqYU=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "taras_qa",
+            "first_name": "Taras",
+            "last_name": "Kravets",
+            "email": "taras_qa@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-09-19T09:44:00.000Z",
+            "position": 3,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 1,
+        "fields": {
+            "name": "Build floating navigation bar",
+            "description": "Implement a minimalist floating top navbar with mobile hamburger toggle and responsive styling.",
+            "deadline": "2026-09-25T18:00:00Z",
+            "priority": "urgent",
+            "is_completed": false,
+            "task_type": 4,
+            "assignees": [
+                3,
+                4,
+                7
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 2,
+        "fields": {
+            "name": "Fix mobile menu overlay bug",
+            "description": "Resolve z-index and collapse issues on small screen sizes.",
+            "deadline": "2026-09-22T18:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 1,
+            "assignees": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 3,
+        "fields": {
+            "name": "Refactor database queries for performance",
+            "description": "Optimize ORM queries and add select_related for worker detail views.",
+            "deadline": "2026-12-01T15:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 12,
+            "assignees": [
+                6,
+                8,
+                5
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 4,
+        "fields": {
+            "name": "Design Soft UI authentication screens",
+            "description": "Modernize login and registration pages with two-column layout and clean inputs.",
+            "deadline": "2026-09-30T15:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 8,
+            "assignees": [
+                8,
+                11
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 5,
+        "fields": {
+            "name": "Write API documentation",
+            "description": "Document all viewsets, serializers, and url routing paths in Markdown.",
+            "deadline": "2026-10-05T15:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 6,
+        "fields": {
+            "name": "Clean up legacy CSS styles",
+            "description": "Remove unused sidebar classes and unify typography rules with styles.css.",
+            "deadline": "2026-10-15T18:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 6,
+            "assignees": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 7,
+        "fields": {
+            "name": "Conduct dependency security audit",
+            "description": "Check python and npm packages for vulnerabilities and update outdated modules.",
+            "deadline": "2026-09-23T18:00:00Z",
+            "priority": "urgent",
+            "is_completed": false,
+            "task_type": 11,
+            "assignees": [
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 8,
+        "fields": {
+            "name": "Run end-to-end regression tests",
+            "description": "Verify task assignment toggles, status updates, and search filters.",
+            "deadline": "2026-09-21T14:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 7,
+            "assignees": [
+                3,
+                4,
+                7
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 9,
+        "fields": {
+            "name": "Setup PostgreSQL migration scripts",
+            "description": "Prepare production database schema configuration and environment variables.",
+            "deadline": "2026-10-10T19:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 10,
+            "assignees": [
+                3,
+                9
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 10,
+        "fields": {
+            "name": "Move secrets to environment variables",
+            "description": "Replace hardcoded SECRET_KEY and DEBUG with values loaded from a .env file.",
+            "deadline": "2026-09-24T12:00:00Z",
+            "priority": "urgent",
+            "is_completed": true,
+            "task_type": 11,
+            "assignees": [
+                9,
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 11,
+        "fields": {
+            "name": "Add pagination to all list pages",
+            "description": "Show five records per page and add previous and next controls at the bottom.",
+            "deadline": "2026-09-28T16:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 4,
+            "assignees": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 12,
+        "fields": {
+            "name": "Implement search by task name",
+            "description": "Add a search form on the task list page filtering results with icontains lookup.",
+            "deadline": "2026-09-29T11:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 4,
+            "assignees": [
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 13,
+        "fields": {
+            "name": "Fix deadline field timezone warning",
+            "description": "Store aware datetimes so Django stops raising naive datetime warnings in tests.",
+            "deadline": "2026-10-02T09:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 1,
+            "assignees": [
+                6,
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 14,
+        "fields": {
+            "name": "Add date-time picker to task form",
+            "description": "Use the HTML5 datetime-local widget so users do not guess the input format.",
+            "deadline": "2026-10-03T17:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 4,
+            "assignees": [
+                11,
+                8
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 15,
+        "fields": {
+            "name": "Write unit tests for models",
+            "description": "Cover __str__ methods and get_absolute_url for all four models.",
+            "deadline": "2026-10-07T13:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 7,
+            "assignees": [
+                7,
+                12
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 16,
+        "fields": {
+            "name": "Write unit tests for search views",
+            "description": "Check that every list page filters results and returns the expected queryset.",
+            "deadline": "2026-10-08T13:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 7,
+            "assignees": [
+                12
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 17,
+        "fields": {
+            "name": "Configure flake8 and black",
+            "description": "Align line length between tools and exclude virtualenv and migrations.",
+            "deadline": "2026-10-09T10:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 6,
+            "assignees": [
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 18,
+        "fields": {
+            "name": "Set up continuous integration pipeline",
+            "description": "Run tests and linters automatically on every push to the develop branch.",
+            "deadline": "2026-11-05T14:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 10,
+            "assignees": [
+                9,
+                6
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 19,
+        "fields": {
+            "name": "Add user registration page",
+            "description": "Allow guests to create an account without choosing a position.",
+            "deadline": "2026-10-12T15:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 4,
+            "assignees": [
+                10,
+                2
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 20,
+        "fields": {
+            "name": "Redesign home page as dashboard",
+            "description": "Replace the plain counter list with four cards showing record counts.",
+            "deadline": "2026-10-14T16:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 8,
+            "assignees": [
+                11
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 21,
+        "fields": {
+            "name": "Fix logout redirect namespace error",
+            "description": "Add the tasks namespace to LOGOUT_REDIRECT_URL to stop NoReverseMatch.",
+            "deadline": "2026-09-26T10:00:00Z",
+            "priority": "urgent",
+            "is_completed": true,
+            "task_type": 1,
+            "assignees": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 22,
+        "fields": {
+            "name": "Optimize worker detail page queries",
+            "description": "Use prefetch_related for assigned tasks to avoid extra database hits.",
+            "deadline": "2026-11-10T12:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 12,
+            "assignees": [
+                10,
+                6
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 23,
+        "fields": {
+            "name": "Prepare deployment checklist",
+            "description": "List every setting that must change before the first production release.",
+            "deadline": "2026-11-12T18:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                9,
+                5
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 24,
+        "fields": {
+            "name": "Add whitenoise for static files",
+            "description": "Serve compressed static assets in production without a separate web server.",
+            "deadline": "2026-11-15T15:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 10,
+            "assignees": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 25,
+        "fields": {
+            "name": "Restrict allowed hosts in production",
+            "description": "Fill ALLOWED_HOSTS with the real domain once the site is deployed.",
+            "deadline": "2026-11-16T15:00:00Z",
+            "priority": "urgent",
+            "is_completed": false,
+            "task_type": 11,
+            "assignees": [
+                9,
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 26,
+        "fields": {
+            "name": "Improve empty state messages",
+            "description": "Show a friendly message when a list page has no records yet.",
+            "deadline": "2026-10-20T11:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 8,
+            "assignees": [
+                11
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 27,
+        "fields": {
+            "name": "Add confirmation page before deletion",
+            "description": "Every delete action must ask for confirmation and offer a cancel button.",
+            "deadline": "2026-10-21T11:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 4,
+            "assignees": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 28,
+        "fields": {
+            "name": "Fix broken links in reference tables",
+            "description": "Position and task type names pointed to pages that do not exist.",
+            "deadline": "2026-10-22T14:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 1,
+            "assignees": [
+                4,
+                12
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 29,
+        "fields": {
+            "name": "Sort reference lists alphabetically",
+            "description": "Add default ordering so pagination returns stable results.",
+            "deadline": "2026-10-25T14:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 6,
+            "assignees": [
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 30,
+        "fields": {
+            "name": "Translate interface labels to English",
+            "description": "Replace mixed-language button captions with consistent English wording.",
+            "deadline": "2026-10-26T09:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 9,
+            "assignees": [
+                2,
+                11
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 31,
+        "fields": {
+            "name": "Add priority badges to task list",
+            "description": "Colour code urgent, high and low priorities for faster scanning.",
+            "deadline": "2026-10-27T16:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 8,
+            "assignees": [
+                11,
+                8
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 32,
+        "fields": {
+            "name": "Review pull request feedback",
+            "description": "Apply mentor comments about absolute imports and class-based views.",
+            "deadline": "2026-09-27T20:00:00Z",
+            "priority": "urgent",
+            "is_completed": true,
+            "task_type": 6,
+            "assignees": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 33,
+        "fields": {
+            "name": "Convert function views to class-based",
+            "description": "Rewrite toggle views so the whole project follows one style.",
+            "deadline": "2026-09-27T21:00:00Z",
+            "priority": "high",
+            "is_completed": true,
+            "task_type": 6,
+            "assignees": [
+                1,
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 34,
+        "fields": {
+            "name": "Plan team onboarding checklist",
+            "description": "Describe the first week for every new developer joining the crew.",
+            "deadline": "2026-11-20T10:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                2,
+                12
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 35,
+        "fields": {
+            "name": "Interview candidates for QA role",
+            "description": "Run three technical interviews and summarise the results for the team.",
+            "deadline": "2026-11-22T13:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 7,
+            "assignees": [
+                12,
+                2
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 36,
+        "fields": {
+            "name": "Audit password policy",
+            "description": "Verify minimum length and common password validators are enabled.",
+            "deadline": "2026-11-25T12:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 11,
+            "assignees": [
+                9,
+                7
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 37,
+        "fields": {
+            "name": "Add database indexes for search fields",
+            "description": "Index the name columns used by icontains filters on large tables.",
+            "deadline": "2026-12-05T15:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 12,
+            "assignees": [
+                10,
+                6
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 38,
+        "fields": {
+            "name": "Archive completed tasks older than a year",
+            "description": "Design a management command that moves stale records out of the main table.",
+            "deadline": "2026-12-10T15:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 10,
+            "assignees": [
+                10
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 39,
+        "fields": {
+            "name": "Fix duplicate task names in seed data",
+            "description": "Two fixtures shared the same title which confused the search results.",
+            "deadline": "2026-10-30T10:00:00Z",
+            "priority": "low",
+            "is_completed": true,
+            "task_type": 1,
+            "assignees": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 40,
+        "fields": {
+            "name": "Prepare demo for the sprint review",
+            "description": "Walk the team through assignment toggles and the new dashboard.",
+            "deadline": "2026-11-28T17:00:00Z",
+            "priority": "urgent",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                2,
+                8,
+                5
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 41,
+        "fields": {
+            "name": "Collect feedback after the release",
+            "description": "Ask every team member what slowed them down during the last sprint.",
+            "deadline": "2026-12-15T17:00:00Z",
+            "priority": "low",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 42,
+        "fields": {
+            "name": "Update README with deployment steps",
+            "description": "Explain environment variables, migrations and how to load demo data.",
+            "deadline": "2026-12-18T12:00:00Z",
+            "priority": "high",
+            "is_completed": false,
+            "task_type": 9,
+            "assignees": [
+                1,
+                10
+            ]
+        }
+    }
+]
