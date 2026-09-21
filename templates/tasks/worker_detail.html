@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Worker - {{ worker.username }}{% endblock %}
+
+{% block content %}
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 pt-2 gap-3">
+    <h4 class="font-weight-bolder text-dark mb-0">Worker: {{ worker.username }}</h4>
+
+    <div class="d-flex gap-2 align-items-center">
+      <a href="{% url 'tasks:worker-update' pk=worker.id %}" class="btn btn-sm bg-gradient-secondary mb-0">
+        Update
+      </a>
+      <a href="{% url 'tasks:worker-delete' pk=worker.id %}" class="btn btn-sm bg-gradient-danger mb-0">
+        Delete
+      </a>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username:</strong> <span class="text-dark text-sm font-weight-bold">{{ worker.username }}</span></p>
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position:</strong> <span class="text-secondary text-xs font-weight-bold">{{ worker.position|default:"—" }}</span></p>
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First name:</strong> <span class="text-secondary text-xs font-weight-bold">{{ worker.first_name|default:"—" }}</span></p>
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last name:</strong> <span class="text-secondary text-xs font-weight-bold">{{ worker.last_name|default:"—" }}</span></p>
+      <p class="mb-0"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email:</strong> <span class="text-secondary text-xs font-weight-bold">{{ worker.email|default:"—" }}</span></p>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h5 class="font-weight-bolder text-dark mb-3">Tasks In Progress</h5>
+    <div class="table-responsive p-0">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Task name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in task_in_progress %}
+            <tr>
+              <td>
+                <a href="{% url 'tasks:task-detail' pk=task.id %}" class="text-dark font-weight-bold text-xs">
+                  {{ task.name }}
+                </a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td class="text-center py-3">
+                <p class="text-secondary text-sm mb-0">No tasks in progress.</p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h5 class="font-weight-bolder text-dark mb-3">Completed Tasks</h5>
+    <div class="table-responsive p-0">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Task name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in completed_task %}
+            <tr>
+              <td>
+                <a href="{% url 'tasks:task-detail' pk=task.id %}" class="text-dark font-weight-bold text-xs">
+                  {{ task.name }}
+                </a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td class="text-center py-3">
+                <p class="text-secondary text-sm mb-0">No completed tasks.</p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% if is_paginated %}
+  <div class="d-flex justify-content-center align-items-center mt-4 pt-3 pb-2 gap-3">
+
+    {% if page_obj.has_previous %}
+      <a class="btn btn-sm bg-gradient-light text-dark mb-0 px-3" href="?page={{ page_obj.previous_page_number }}">
+        <i class="fas fa-chevron-left text-xs me-1"></i> prev
+      </a>
+    {% else %}
+      <button class="btn btn-sm bg-gradient-light text-secondary mb-0 px-3 opacity-5" disabled>
+        prev
+      </button>
+    {% endif %}
+
+    <span class="text-secondary text-sm font-weight-bold px-2 mb-0">
+      Page <span class="text-dark">{{ page_obj.number }}</span> of <span class="text-dark">{{ paginator.num_pages }}</span>
+    </span>
+
+    {% if page_obj.has_next %}
+      <a class="btn btn-sm bg-gradient-light text-dark mb-0 px-3" href="?page={{ page_obj.next_page_number }}">
+        next <i class="fas fa-chevron-right text-xs ms-1"></i>
+      </a>
+    {% else %}
+      <button class="btn btn-sm bg-gradient-light text-secondary mb-0 px-3 opacity-5" disabled>
+        next
+      </button>
+    {% endif %}
+
+    </div>
+{% endif %}

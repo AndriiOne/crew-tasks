@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>{% block title %}Crew Tasks{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+  <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link id="pagestyle" href="{% static 'assets/css/soft-design-system.css' %}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="bg-white position-relative min-vh-100 overflow-x-hidden">
+
+  <div class="position-fixed w-100 h-100 top-0 start-0 overflow-hidden" style="z-index: -1;">
+    <div class="position-absolute w-100 h-100 top-0 start-0" style="background: linear-gradient(135deg, #f8f7ff 0%, #ede9fe 100%);"></div>
+    <div class="position-absolute w-100 h-100 top-0 start-0 pattern-mask-accent" style="--mask-img: url('{% static "assets/img/shapes/pattern-lines.svg" %}'); opacity: 0.08;"></div>
+  </div>
+
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg blur blur-rounded z-index-3 shadow py-2 px-4">
+          <div class="container-fluid px-0">
+            <a class="navbar-brand font-weight-bolder" href="{% url 'tasks:home' %}" style="font-family: 'Caveat', cursive; font-size: 2.5rem; color: #4F46E5;">
+              Crew Tasks
+            </a>
+
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item mx-2">
+                  <a href="{% url 'tasks:home' %}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a href="{% url 'tasks:task-list' %}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold">Tasks</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a href="{% url 'tasks:worker-list' %}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold">Workers</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a href="{% url 'tasks:position-list' %}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold">Positions</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a href="{% url 'tasks:task-type-list' %}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold">Task Types</a>
+                </li>
+              </ul>
+
+              <ul class="navbar-nav ms-auto align-items-center">
+                {% if request.user.is_authenticated %}
+                  <li class="nav-item me-3">
+                    <span class="text-sm text-secondary font-weight-bold">User: {{ request.user.username }}</span>
+                  </li>
+                  <li class="nav-item">
+                    <form action="{% url 'logout' %}" method="post" class="d-inline">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-sm bg-gradient-primary mb-0">Log Out</button>
+                    </form>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a href="{% url 'login' %}" class="btn btn-sm bg-gradient-primary mb-0">Sign In</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-lg border-radius-xl p-4 bg-white">
+
+          {% block content %}{% endblock %}
+
+          {% block pagination %}
+              {% include "includes/pagination.html" %}
+          {% endblock %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+</body>
+</html>

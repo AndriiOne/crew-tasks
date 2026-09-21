@@ -1,0 +1,23 @@
+{% extends "base_auth.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h3 class="font-weight-bolder mb-1">Sign Up</h3>
+  <p class="text-secondary mb-4">Create your account to continue</p>
+
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn bg-gradient-primary w-100 mb-0">REGISTER</button>
+    </div>
+  </form>
+
+  <div class="text-center pt-4">
+    <p class="text-sm mx-auto mb-0 text-secondary">
+      Already have an account? 
+      <a href="{% url 'login' %}" class="text-primary text-gradient font-weight-bold">Sign in</a>
+    </p>
+  </div>
+{% endblock %}

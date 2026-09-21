@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Task Details - {{ task.name }}{% endblock %}
+
+{% block content %}
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 pt-2 gap-3">
+    <h4 class="font-weight-bolder text-dark mb-0">Task: {{ task.name }}</h4>
+
+    <div class="d-flex flex-wrap gap-2 align-items-center">
+      {% if task.is_completed %}
+        <a href="{% url 'tasks:toggle-status-task' pk=task.id %}" class="btn btn-sm bg-gradient-dark mb-0">
+          Reopen
+        </a>
+      {% else %}
+        <a href="{% url 'tasks:toggle-status-task' pk=task.id %}" class="btn btn-sm bg-gradient-info mb-0">
+          Complete
+        </a>
+      {% endif %}
+
+      <a href="{% url 'tasks:task-update' pk=task.id %}" class="btn btn-sm bg-gradient-secondary mb-0">
+        Update
+      </a>
+
+      {% if request.user in task.assignees.all %}
+        <a href="{% url 'tasks:toggle-task-assign' pk=task.id %}" class="btn btn-sm bg-gradient-warning mb-0">
+          Remove me
+        </a>
+      {% else %}
+        <a href="{% url 'tasks:toggle-task-assign' pk=task.id %}" class="btn btn-sm bg-gradient-success mb-0">
+          Assign me
+        </a>
+      {% endif %}
+
+      <a href="{% url 'tasks:task-delete' pk=task.id %}" class="btn btn-sm bg-gradient-danger mb-0">
+        Delete
+      </a>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description:</strong> <span class="text-dark text-sm">{{ task.description|default:"No description provided." }}</span></p>
+
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Task type:</strong> <span class="text-secondary text-xs font-weight-bold">{{ task.task_type }}</span></p>
+
+      <p class="mb-2 d-flex align-items-center gap-2">
+        <strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Priority:</strong>
+        {% if task.priority == "urgent" %}
+          <span class="badge badge-sm bg-gradient-danger">{{ task.get_priority_display }}</span>
+        {% elif task.priority == "high" %}
+          <span class="badge badge-sm bg-gradient-info">{{ task.get_priority_display }}</span>
+        {% elif task.priority == "low" %}
+          <span class="badge badge-sm bg-gradient-secondary">{{ task.get_priority_display }}</span>
+        {% else %}
+          <span class="badge badge-sm bg-gradient-light text-dark">{{ task.get_priority_display }}</span>
+        {% endif %}
+      </p>
+
+      <p class="mb-2"><strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline:</strong> <span class="text-secondary text-xs font-weight-bold">{{ task.deadline }}</span></p>
+
+      <p class="mb-0 d-flex align-items-center gap-2">
+        <strong class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status:</strong>
+        {% if task.is_completed %}
+          <span class="badge badge-sm bg-gradient-success">Done</span>
+        {% else %}
+          <span class="badge badge-sm bg-gradient-secondary">In progress</span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h5 class="font-weight-bolder text-dark mb-3">Assignees</h5>
+
+    <div class="table-responsive p-0">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First name</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Last name</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for worker in task.assignees.all %}
+            <tr>
+              <td>
+                <a href="{% url 'tasks:worker-detail' pk=worker.id %}" class="text-dark font-weight-bold text-xs">
+                  {{ worker.username }}
+                </a>
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ worker.first_name }}</span>
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ worker.last_name }}</span>
+              </td>
+              <td>
+                <span class="text-secondary text-xs font-weight-bold">{{ worker.position|default:"—" }}</span>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="4" class="text-center py-3">
+                <p class="text-secondary text-sm mb-0">No workers assigned.</p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
