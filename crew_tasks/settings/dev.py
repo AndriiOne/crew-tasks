@@ -5,8 +5,6 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
-
-
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 

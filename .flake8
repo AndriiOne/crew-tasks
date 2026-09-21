@@ -4,3 +4,5 @@ extend-exclude =
     .venv,
     venv,
     tasks/migrations
+per-file-ignores =
+    crew_tasks/settings/*.py: F403, F405
